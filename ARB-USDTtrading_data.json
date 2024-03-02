@@ -1,0 +1,59 @@
+[
+    {
+        "code": 0,
+        "msg": "",
+        "debugMsg": "",
+        "data": {
+            "symbol": "ARB-USDT",
+            "orderId": 1763991569385291776,
+            "transactTime": 1709403338176,
+            "price": "1.993",
+            "stopPrice": "0",
+            "origQty": "0",
+            "executedQty": "15.046",
+            "cummulativeQuoteQty": "29.9987148",
+            "status": "FILLED",
+            "type": "MARKET",
+            "side": "BUY",
+            "clientOrderID": ""
+        }
+    },
+    {
+        "code": 0,
+        "msg": "",
+        "debugMsg": "",
+        "data": {
+            "symbol": "ARB-USDT",
+            "orderId": 1763991623676362752,
+            "transactTime": 1709403351120,
+            "price": "1.993",
+            "stopPrice": "0",
+            "origQty": "7",
+            "executedQty": "7",
+            "cummulativeQuoteQty": "13.9496",
+            "status": "FILLED",
+            "type": "MARKET",
+            "side": "SELL",
+            "clientOrderID": ""
+        }
+    },
+    {
+        "code": 0,
+        "msg": "",
+        "debugMsg": "",
+        "data": {
+            "symbol": "ARB-USDT",
+            "orderId": 1763991654152175616,
+            "transactTime": 1709403358386,
+            "price": "1.993",
+            "stopPrice": "0",
+            "origQty": "7",
+            "executedQty": "7",
+            "cummulativeQuoteQty": "13.9496",
+            "status": "FILLED",
+            "type": "MARKET",
+            "side": "SELL",
+            "clientOrderID": ""
+        }
+    }
+]
