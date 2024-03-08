@@ -10,7 +10,7 @@ class UTILS():
 
     def json_writer(self, symbol, response_data_list):
         try:
-            with open(f"{symbol}trading_data.json", "w") as f:
+            with open(f"TRADES_JSON/{symbol}trading_data.json", "w") as f:
                 json.dump(response_data_list, f, indent=4)
         except Exception as ex:
             logging.exception(
@@ -21,17 +21,30 @@ class UTILS():
         time = datetime.datetime.utcfromtimestamp(seconds)
         milliseconds_str = str(milliseconds).zfill(3)
         return time.strftime('%Y-%m-%d %H:%M:%S') + '.' + milliseconds_str
-        
+            
     def show_trade_time(self, response_data_list):
         result_time = ''
-        for d in response_data_list:
+        for i, d in enumerate(response_data_list):
             try:
                 formatted_time = self.milliseconds_to_datetime(d['data']['transactTime'])               
                 form_time = f"{d['data']['status']}___{d['data']['side']}: {formatted_time}" 
-                result_time += form_time + '\n'                    
+                result_time += form_time + '\n'  
+                response_data_list[i]["process_time"] = form_time               
             except Exception as ex:
                 logging.exception(
                     f"An error occurred in file '{current_file}', line {inspect.currentframe().f_lineno}: {ex}") 
                 # print(ex)
-        return result_time
+        return result_time, response_data_list
+    
+    def price_precession_extractor(self, enter_price):
+        from decimal import Decimal        
+        try:
+            step_size = str(enter_price)      
+            price_precision = Decimal(step_size).normalize().to_eng_string()    
+            return len(price_precision.split('.')[1])          
+        except Exception as ex:
+            # print(ex)
+            logging.exception(
+                f"An error occurred in file '{current_file}', line {inspect.currentframe().f_lineno}: {ex}")
+            return 1
 
